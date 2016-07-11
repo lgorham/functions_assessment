@@ -14,7 +14,7 @@
 
 #    If the user does not provide a tax rate it should default to 5% 
 
-def tax_rate(default_tax = 0.05, state, item_cost):
+def tax_rate(state, item_cost, default_tax = 0.05):
     """
     Determines the applicable tax rate depending on state, and returns
     the total cost of the item.
@@ -43,9 +43,9 @@ def isberry(fruit_name):
 
 
     berries = ["strawberry", "cherry", "blackberry"]
-    if fruit_name in berries
+    if fruit_name in berries:
         return True
-    else
+    else:
         return False
 
 #    (b) Write another function, shipping_cost(), which calculates shipping cost
@@ -62,9 +62,9 @@ def shipping_cost(fruit_name):
 
 
     berry = is_berry(fruit_name)
-    if berry == "True"
+    if berry == "True":
         return 0
-    elif berry == "False"
+    elif berry == "False":
         return 5
 
 # 2. (a) Write a function, `is_hometown()`, which takes a town name as a string
@@ -78,7 +78,7 @@ def is_hometown(town_name):
 
     """
 
-    if town_name == "Sun Valley"
+    if town_name == "Sun Valley":
         return True
     else:
         return False
@@ -110,7 +110,7 @@ def hometown_greeting(town_name, first_name, last_name):
 
     """
     complete_name = full_name(first_name, last_name)
-    if is_hometown(town_name) == "True"
+    if is_hometown(town_name) == "True":
         print "Hi", complete_name, "we're from the same place!"
     else:
         print "Hi", complete_name, "where are you from? "
