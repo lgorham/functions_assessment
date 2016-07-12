@@ -14,7 +14,7 @@
 
 #    If the user does not provide a tax rate it should default to 5% 
 
-def tax_rate(state, item_cost, default_tax = 0.05):
+def calculate_total_cost(state, item_cost, tax_rate = 0.05):
     """
     Determines the applicable tax rate depending on state, and returns
     the total cost of the item.
@@ -24,7 +24,8 @@ def tax_rate(state, item_cost, default_tax = 0.05):
     if state == "CA":
         total_cost = (item_cost * 0.07) + item_cost
     else:
-        total_cost = (item_cost * default_tax) + item_cost
+        total_cost = (item_cost * tax_rate) + item_cost
+    return total_cost
 
 
 #####################################################################
@@ -34,37 +35,36 @@ def tax_rate(state, item_cost, default_tax = 0.05):
 #        and returns a boolean if the fruit is a "strawberry", "cherry", or 
 #        "blackberry".
 
-def isberry(fruit_name):
+def is_berry(fruit_name):
     """
     Takes a fruit name as a string, and returns a boolean if the fruit is
     one of the listed berrires
 
     """
 
-
     berries = ["strawberry", "cherry", "blackberry"]
-    if fruit_name in berries:
-        return True
-    else:
-        return False
+    return fruit_name in berries
+
+    # if fruit_name in berries:
+    #     return True
+    # else:
+    #     return False
 
 #    (b) Write another function, shipping_cost(), which calculates shipping cost
 #        by taking a fruit name as a string, calling the `is_berry()` function 
 #        within the `shipping_cost()` function and returns `0` if ``is_berry()
 #        == True``, and `5` if ``is_berry() == False``.
 
-def shipping_cost(fruit_name):
+def calculate_shipping_cost(fruit_name):
     """
     Calls the is_berry function, and based upon the output determines the
     shipping cost - with 0 for a berry, and 5 for another frutit
 
     """
 
-
-    berry = is_berry(fruit_name)
-    if berry == "True":
+    if is_berry(fruit_name) == True:
         return 0
-    elif berry == "False":
+    else:
         return 5
 
 # 2. (a) Write a function, `is_hometown()`, which takes a town name as a string
@@ -78,10 +78,11 @@ def is_hometown(town_name):
 
     """
 
-    if town_name == "Sun Valley":
-        return True
-    else:
-        return False
+    return town_name == "Sun Valley"
+    # if town_name is "Sun Valley"
+    #     return True
+    # else:
+    #     return False
 
 #    (b) Write a function, `full_name()`, which takes a first and last name as
 #        arguments as strings and returns the concatenation of the two names in
@@ -110,7 +111,7 @@ def hometown_greeting(town_name, first_name, last_name):
 
     """
     complete_name = full_name(first_name, last_name)
-    if is_hometown(town_name) == "True":
+    if is_hometown(town_name) == True:
         print "Hi", complete_name, "we're from the same place!"
     else:
         print "Hi", complete_name, "where are you from? "
@@ -140,9 +141,9 @@ addfive(20)
 # 3. Make a function that takes in a number and a list of numbers. It should append
 #    the number to the list of numbers and return the list.
 
-def append_num(list, x):
-    list.append(x)
-    return list
+def append_num(num_list, num):
+    num_list.append(num)
+    return num_list
 
 
 #####################################################################
